@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "start": "deno run --allow-env --allow-net --allow-read mod.ts",
+    "format": "deno run --allow-write --allow-read --allow-sys --allow-env npm:prettier --write ."
+  },
+  "imports": {
+    "postgres": "https://deno.land/x/postgres@v0.17.0/mod.ts",
+    "grammy": "https://deno.land/x/grammy@v1.18.1/mod.ts",
+    "grammy_ratelimiter": "https://deno.land/x/grammy_ratelimiter@v1.2.0/mod.ts",
+    "std/": "https://deno.land/std@0.196.0/"
+  },
+  "lock": false
+}
