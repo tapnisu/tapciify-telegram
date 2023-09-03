@@ -7,6 +7,8 @@
     "postgres": "https://deno.land/x/postgres@v0.17.0/mod.ts",
     "grammy": "https://deno.land/x/grammy@v1.18.1/mod.ts",
     "grammy_ratelimiter": "https://deno.land/x/grammy_ratelimiter@v1.2.0/mod.ts",
+    "grammy_files": "https://deno.land/x/grammy_files@v1.0.4/mod.ts",
+    "grammy_parse_mode": "https://deno.land/x/grammy_parse_mode@1.7.1/mod.ts",
     "std/": "https://deno.land/std@0.196.0/"
   },
   "lock": false
