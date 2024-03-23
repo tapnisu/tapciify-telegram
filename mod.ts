@@ -14,15 +14,20 @@ bot.api.config.use(hydrateFiles(bot.token));
 bot.use(limit());
 bot.use(hydrateReply);
 
-const converter = async (ctx: Pick<MyContext, "getFile" | "replyFmt">) => {
+const converter = async (
+  ctx: Pick<MyContext, "getFile" | "replyFmt" | "reply">
+) => {
   const file = await ctx.getFile();
 
   const req = await fetch(file.getUrl());
   const blob = await req.blob();
   const res = await api.convert(blob, 64, undefined, undefined, 0.45);
+
+  if (res.data == undefined) return await ctx.reply(res.message);
+
   const asciiArt = res.data[0].asciiArt;
 
-  ctx.replyFmt(fmt`${code(asciiArt)}`);
+  await ctx.replyFmt(fmt`${code(asciiArt)}`);
 };
 
 bot.command("start", (ctx) =>

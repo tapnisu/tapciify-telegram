@@ -21,9 +21,9 @@ export class TapciifyApi {
   }
 
   async convert(
-    file: File,
-    width: number,
-    height: number,
+    file: File | Blob,
+    width?: number,
+    height?: number,
     asciiString = " .,:;+*?%S#@",
     fontRatio = 0.36,
     reverse = false
