@@ -7,8 +7,8 @@ edition = "2021"
 teloxide = { version = "0.12", features = ["macros"] }
 log = "0.4"
 pretty_env_logger = "0.5"
-tokio = { version = "1.8", features = ["rt-multi-thread", "macros"] }
-tapciify = { version = "3.3.0", default-features = false }
-image = "0.25.1"
-reqwest = "0.12.3"
-anyhow = "1.0.82"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+tapciify = { version = "3.3", default-features = false }
+image = "0.25"
+reqwest = "0.12"
+anyhow = "1.0"
