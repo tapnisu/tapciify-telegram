@@ -2,7 +2,7 @@ pub trait EscapeMarkdownV2 {
     /// Escapes Telegrams Markdown V2 characters
     ///
     /// ```
-    /// use tapciify_telegram::EscapeMarkdownV2;
+    /// use tapciify_telegram::escape_markdown::EscapeMarkdownV2;
     ///
     /// let result = "*Hello world!*".to_owned().escape_markdown_v2();
     ///

@@ -6,9 +6,7 @@ use tapciify::{
 use teloxide::prelude::*;
 use teloxide::types::{ParseMode, PhotoSize};
 
-use crate::escape_markdown::EscapeMarkdownV2;
-
-mod escape_markdown;
+use tapciify_telegram::escape_markdown::EscapeMarkdownV2;
 
 #[tokio::main]
 async fn main() {
