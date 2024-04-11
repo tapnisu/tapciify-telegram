@@ -26,9 +26,8 @@ async fn main() {
             colored: false,
         };
 
-        match send_ascii_art(&bot, &msg, &photo_size, &options).await {
-            Ok(message) => message,
-            Err(err) => bot.send_message(msg.chat.id, err.to_string()).await?,
+        if let Err(err) = send_ascii_art(&bot, &msg, &photo_size, &options).await {
+            bot.send_message(msg.chat.id, err.to_string()).await?;
         };
 
         Ok(())
