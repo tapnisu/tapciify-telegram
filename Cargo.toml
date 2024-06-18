@@ -3,6 +3,9 @@ name = "tapciify-telegram"
 version = "0.1.0"
 edition = "2021"
 
+# Don't forget to update `.github/workflows/test.yml`
+rust-version = "1.74"
+
 [dependencies]
 teloxide = { version = "0.12", features = ["macros"] }
 log = "0.4"
