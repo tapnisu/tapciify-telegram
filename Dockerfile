@@ -16,6 +16,7 @@ RUN apk update \
     && apk upgrade --available \
     && apk add --no-cache ca-certificates \
     && update-ca-certificates
+
 COPY --from=builder /usr/src/tapciify-telegram/target/release/tapciify-telegram /usr/local/bin/tapciify-telegram
 
 CMD ["tapciify-telegram"]
