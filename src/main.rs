@@ -18,7 +18,14 @@ async fn main() {
     teloxide::repl(bot, |bot: Bot, msg: Message| async move {
         let photo_size = match msg.photo() {
             Some(photo_size) => photo_size[0].to_owned(),
-            None => return Ok(()),
+            None => {
+                bot.send_message(
+                    msg.chat.id,
+                    "Send your image as photo so I can convert it to ASCII art",
+                )
+                .await?;
+                return Ok(());
+            }
         };
 
         let options = AsciiArtConverterOptions {
