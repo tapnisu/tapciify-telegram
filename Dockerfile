@@ -1,4 +1,4 @@
-FROM rust:1.79-alpine3.20 as builder
+FROM rust:1.79-alpine3.20 AS builder
 LABEL authors="tapnisu"
 
 WORKDIR /usr/src/tapciify-telegram
@@ -10,7 +10,7 @@ RUN apk update \
 COPY . .
 RUN cargo build --release
 
-FROM alpine:3.20 as runner
+FROM alpine:3.20 AS runner
 
 RUN apk update \
     && apk upgrade --available \
