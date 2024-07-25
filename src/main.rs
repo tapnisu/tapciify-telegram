@@ -8,6 +8,8 @@ use teloxide::types::{ParseMode, PhotoSize};
 
 use tapciify_telegram::escape_markdown::EscapeMarkdownV2;
 
+const DEFAULT_WIDTH: u32 = 32;
+
 #[tokio::main]
 async fn main() {
     pretty_env_logger::init();
@@ -21,7 +23,7 @@ async fn main() {
             None => {
                 bot.send_message(
                     msg.chat.id,
-                    "Send your image as photo so I can convert it to ASCII art",
+                    "Send your image as photo so I can convert it to ASCII art. Also you can write width as caption, so I'll resize image for you",
                 )
                 .await?;
                 return Ok(());
@@ -59,8 +61,12 @@ async fn send_ascii_art(
     .bytes()
     .await?;
 
+    let width = msg.caption().map_or(DEFAULT_WIDTH, |caption| {
+        caption.parse().unwrap_or(DEFAULT_WIDTH)
+    });
+
     let img = image::load_from_memory(&bytes)?.resize_custom_ratio(
-        Some(64),
+        Some(width),
         None,
         DEFAULT_FONT_RATIO,
         FilterType::Triangle,
